@@ -1,10 +1,12 @@
 package com.applus_bank.handler.exception;
 
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 // 리다이렉트 예외
 // 리다이렉트란?
+@Getter
 public class RedirectException extends RuntimeException{
 
     private HttpStatus status;
