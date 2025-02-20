@@ -5,18 +5,25 @@
 
     <!--  회원가입 createUser  -->
     <insert id="insert">
-        insert into user_tb (username, password, fullname, create_at)
+        insert into user_tb (username, password, fullname, created_at)
         values (#{username}, #{password}, #{fullname}, now())
     </insert>
 
     <update id="updateById">
         update user_tb set username = #{username},
                            password = #{password},
-                           fullname = #{fullname} where id = #{jid}
+                           fullname = #{fullname} where id = #{id}
     </update>
 
     <delete id="deleteById">
         delete from user_tb where id = #{id}
     </delete>
+
+    <!-- 사용자 정보 조회 -->
+    <!-- select 는 resultType 이 있다 ! -->
+    <select id="findByUsername" resultType="com.applus_bank.repository.model.User">
+        select * from user_tb
+        where username = #{username}
+    </select>
 
 </mapper>

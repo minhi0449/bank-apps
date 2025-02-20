@@ -9,6 +9,8 @@ import java.util.List;
     날짜 : 2025.02.17 (일)
     이름 : 김민희
     내용 : @Mapper 선언했지만 Spring Boot 가 자동 감지 못함 이슈 → MyBatis 의존성 추가
+
+    이력 : 2025.02.20 (목) - 사용자 정보 조회를 위한 findByUsername () 추가
  */
 
 @Mapper
@@ -21,6 +23,7 @@ public interface UserRepository {
     public int findById(Integer id);
     public List<User> findAll();
 
-    public User findByUsernameAndPassword(
-    );
+    public User findByUsernameAndPassword();
+
+    public User findByUsername(String username);
 }
